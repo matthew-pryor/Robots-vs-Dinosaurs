@@ -3,9 +3,9 @@ from weapon import Weapon
 
 class Robot:
 
-    def __init__(self, name) -> None:
+    def __init__(self, name):
         self.name = name
         self.health = 100
 
-    def attack(self): #void
+    def attack(self, dinosaur): #void
         pass
