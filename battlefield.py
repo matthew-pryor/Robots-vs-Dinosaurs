@@ -43,11 +43,11 @@ class Battlfield:
 
     def show_dino_opponent_options(self): #void
 
-        self.herd = Herd()
+        self.team_dino.dino_1.attack(self.team_robo.robo_1, self.team_robo)
 
     def show_robo_opponent_options(self): #void
 
-        self.fleet = Fleet()
+        pass
 
     def display_winners(self): #void
 
