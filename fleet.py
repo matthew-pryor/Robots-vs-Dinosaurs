@@ -10,10 +10,10 @@ class Fleet:
 
     def create_fleet(self): #void
 
-        robo_1 = Robot('Terminator')
-        robo_2 = Robot('Robo Cop')
-        robo_3 = Robot('Gypsy Danger')
+        self.robo_1 = Robot('Terminator')
+        self.robo_2 = Robot('Robo Cop')
+        self.robo_3 = Robot('Gypsy Danger')
 
-        self.fleet.append(robo_1)
-        self.fleet.append(robo_2)
-        self.fleet.append(robo_3)
+        self.fleet.append(self.robo_1)
+        self.fleet.append(self.robo_2)
+        self.fleet.append(self.robo_3)
