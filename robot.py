@@ -23,5 +23,5 @@ class Robot:
             dinosaur_list.herd.remove(dinosaur)
 
             print(f"That's a lot of damage! Looks like {dinosaur.name} is out of commission!")
-
+            
             dinosaur_list.herd_names.remove(dinosaur.name)
