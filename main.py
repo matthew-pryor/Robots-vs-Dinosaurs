@@ -6,31 +6,32 @@ battlefield = Battlfield()
 
 battlefield.display_welcome()
 
-battlefield.dino_turn()
+battlefield.robo_turn()
 
-print(battlefield.team_robo.robo_1.health)
+print(battlefield.team_dino.dino_1.health)
 
-battlefield.dino_turn()
+print(battlefield.team_dino.herd_names)
 
-print(battlefield.team_robo.robo_1.health)
+battlefield.robo_turn()
 
-battlefield.dino_turn()
+print(battlefield.team_dino.dino_1.health)
 
-print(battlefield.team_robo.robo_1.health)
+print(battlefield.team_dino.herd_names)
 
-battlefield.dino_turn()
+battlefield.robo_turn()
 
-print(battlefield.team_robo.robo_1.health)
+print(battlefield.team_dino.dino_1.health)
 
-battlefield.dino_turn()
+print(battlefield.team_dino.herd_names)
 
-print(battlefield.team_robo.robo_1.health)
+battlefield.robo_turn()
 
-battlefield.dino_turn()
+print(battlefield.team_dino.dino_1.health)
 
-print(battlefield.team_robo.robo_1.health)
+print(battlefield.team_dino.herd_names)
 
-battlefield.dino_turn()
+battlefield.robo_turn()
 
-print(battlefield.team_robo.fleet_names)
+print(battlefield.team_dino.dino_1.health)
 
+print(battlefield.team_dino.herd_names)

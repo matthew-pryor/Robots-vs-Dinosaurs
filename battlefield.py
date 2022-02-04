@@ -47,7 +47,7 @@ class Battlfield:
 
     def show_robo_opponent_options(self): #void
 
-        pass
+        self.team_robo.robo_1.attack(self.team_dino.dino_1, self.team_dino)
 
     def display_winners(self): #void
 
