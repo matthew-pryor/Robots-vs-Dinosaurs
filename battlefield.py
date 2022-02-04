@@ -41,15 +41,77 @@ class Battlfield:
     
     def battle(self): #void - ran after the display and initiates the first turn. This is where the turns alternated between one another.
 
-        self.dino_turn()
+        self.dino_turn_now = False
 
-        self.robo_turn()
+        while self.dino_turn_now == True:
 
-    def dino_turn(self): #void
+            self.dino_turn()
+
+            self.dino_turn_now = False
+
+        while self.dino_turn_now == False:
+
+            self.robo_turn()
+
+            self.dino_turn_now = True
+
+    def dino_turn(self): #void display the current status of the herd (who is left, what their health is at, and their attack_power)
+        
+        print("Current status of Team Dynomite:")
+
+        count = 0
+
+        while (self.team_dino.dino_1 in self.team_dino.herd) and count == 0:
+
+            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_1)} to select Toby ({self.team_dino.dino_1.health}, {self.team_dino.dino_1.dino_attack_power})')
+
+            count += 1
+
+        count = 0
+
+        while (self.team_dino.dino_2 in self.team_dino.herd) and count == 0:
+            
+            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_2)} to select Moo ({self.team_dino.dino_2.health}, {self.team_dino.dino_2.dino_attack_power})')
+
+            count += 1
+
+        count = 0
+
+        while (self.team_dino.dino_3 in self.team_dino.herd) and count == 0:
+            
+            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_3)} to select Jaxson ({self.team_dino.dino_3.health}, {self.team_dino.dino_3.dino_attack_power})')
+
+            count += 1
 
         self.show_dino_opponent_options()
 
     def robo_turn(self): #void
+
+        print("Current status of Team Robo Dunasty:")
+
+        count = 0
+
+        while (self.team_robo.robo_1 in self.team_robo.fleet) and count == 0:
+
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Toby ({self.team_robo.robo_1.health}, {self.team_robo.robo_1.robo_attack_power})')
+
+            count += 1
+
+        count = 0
+
+        while (self.team_robo.robo_2 in self.team_robo.fleet) and count == 0:
+            
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Moo ({self.team_robo.robo_2.health}, {self.team_robo.robo_3.robo_attack_power})')
+
+            count += 1
+
+        count = 0
+
+        while (self.team_robo.robo_3 in self.team_robo.fleet) and count == 0:
+            
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_3)} to select Jaxson ({self.team_robo.robo_3.health}, {self.team_robo.robo_3.robo_attack_power})')
+
+            count += 1
 
         self.show_robo_opponent_options()
 
@@ -106,18 +168,28 @@ class Battlfield:
 
     def test(self):
 
-        game_winner = False
+        print("Current status of Team Dynomite:")
 
-        while game_winner is False:
+        count = 0
 
-            del self.team_robo.fleet[0]
+        while (self.team_dino.dino_1 in self.team_dino.herd) and count == 0:
 
-            if ((len(self.team_dino.herd) == 0) or (len(self.team_robo.fleet) == 0)):
+            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_1)} to select Toby ({self.team_dino.dino_1.health}, {self.team_dino.dino_1.dino_attack_power})')
 
-                game_winner = True
+            count += 1
 
-            else:
-                
-                game_winner = False
+        count = 0
 
-        self.display_winners()
+        while (self.team_dino.dino_2 in self.team_dino.herd) and count == 0:
+            
+            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_2)} to select Moo ({self.team_dino.dino_2.health}, {self.team_dino.dino_2.dino_attack_power})')
+
+            count += 1
+
+        count = 0
+
+        while (self.team_dino.dino_3 in self.team_dino.herd) and count == 0:
+            
+            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_3)} to select Jaxson ({self.team_dino.dino_3.health}, {self.team_dino.dino_3.dino_attack_power})')
+
+            count += 1
