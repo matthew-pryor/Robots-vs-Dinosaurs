@@ -8,7 +8,8 @@ class Robot:
         self.name = name
         self.health = 100
         weapon = Weapon('Pulse Rifle', 20)
-        self.attack_power = weapon.attack_power
+        self.robo_attack_power = weapon.weapon_attack_power
 
     def attack(self, dinosaur): #void
+
         pass
