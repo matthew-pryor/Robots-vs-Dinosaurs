@@ -13,19 +13,21 @@ class Battlfield:
         
         self.display_welcome()
         
-        game_winner = False
+        self.game_winner = False
+        self.dino_turn_now = True
+        self.robo_turn_now = False
 
-        while game_winner is False:
+        while self.game_winner is False:
 
             self.battle()
 
             if ((len(self.team_dino.herd) < 0) or (len(self.team_robo) < 0)):
 
-                game_winner = True
+                self.game_winner = True
 
             else:
                 
-                game_winner = False
+                self.game_winner = False
 
         self.display_winners()
 
@@ -41,19 +43,22 @@ class Battlfield:
     
     def battle(self): #void - ran after the display and initiates the first turn. This is where the turns alternated between one another.
 
-        self.dino_turn_now = False
+        self.dino_turn_now = True
+        self.robo_turn_now = False
 
-        while self.dino_turn_now == True:
+        while self.dino_turn_now == True and self.robo_turn_now == False:
 
             self.dino_turn()
 
             self.dino_turn_now = False
+            self.robo_turn_now = True
 
-        while self.dino_turn_now == False:
+        while self.dino_turn_now == False and self.robo_turn_now == True:
 
             self.robo_turn()
 
             self.dino_turn_now = True
+            self.robo_turn_now = False
 
     def dino_turn(self): #void display the current status of the herd (who is left, what their health is at, and their attack_power)
         
@@ -63,7 +68,7 @@ class Battlfield:
 
         while (self.team_dino.dino_1 in self.team_dino.herd) and count == 0:
 
-            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_1)} to select Toby ({self.team_dino.dino_1.health}, {self.team_dino.dino_1.dino_attack_power})')
+            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_1)} to select Toby (Hitpoints: {self.team_dino.dino_1.health}, Attack Power: {self.team_dino.dino_1.dino_attack_power})')
 
             count += 1
 
@@ -71,7 +76,7 @@ class Battlfield:
 
         while (self.team_dino.dino_2 in self.team_dino.herd) and count == 0:
             
-            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_2)} to select Moo ({self.team_dino.dino_2.health}, {self.team_dino.dino_2.dino_attack_power})')
+            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_2)} to select Moo (Hitpoints: {self.team_dino.dino_2.health}, Attack Power: {self.team_dino.dino_2.dino_attack_power})')
 
             count += 1
 
@@ -79,7 +84,7 @@ class Battlfield:
 
         while (self.team_dino.dino_3 in self.team_dino.herd) and count == 0:
             
-            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_3)} to select Jaxson ({self.team_dino.dino_3.health}, {self.team_dino.dino_3.dino_attack_power})')
+            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_3)} to select Jaxson (Hitpoints: {self.team_dino.dino_3.health}, Attack Power: {self.team_dino.dino_3.dino_attack_power})')
 
             count += 1
 
@@ -93,7 +98,7 @@ class Battlfield:
 
         while (self.team_robo.robo_1 in self.team_robo.fleet) and count == 0:
 
-            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Toby ({self.team_robo.robo_1.health}, {self.team_robo.robo_1.robo_attack_power})')
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Toby (Hitpoints: {self.team_robo.robo_1.health}, Attack Power: {self.team_robo.robo_1.robo_attack_power})')
 
             count += 1
 
@@ -101,7 +106,7 @@ class Battlfield:
 
         while (self.team_robo.robo_2 in self.team_robo.fleet) and count == 0:
             
-            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Moo ({self.team_robo.robo_2.health}, {self.team_robo.robo_3.robo_attack_power})')
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Moo (Hitpoints: {self.team_robo.robo_2.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
 
             count += 1
 
@@ -109,7 +114,7 @@ class Battlfield:
 
         while (self.team_robo.robo_3 in self.team_robo.fleet) and count == 0:
             
-            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_3)} to select Jaxson ({self.team_robo.robo_3.health}, {self.team_robo.robo_3.robo_attack_power})')
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_3)} to select Jaxson (Hitpoints: {self.team_robo.robo_3.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
 
             count += 1
 
@@ -117,44 +122,48 @@ class Battlfield:
 
     def show_dino_opponent_options(self): #void
 
-        self.team_dino.dino_1.attack(self.team_robo.robo_1, self.team_robo.fleet)
+        dino_player_input = input('Please select a dinosaur to attack with: ')
 
-        self.team_dino.dino_1.attack(self.team_robo.robo_2, self.team_robo.fleet)
+        dino_player_input_index = int(dino_player_input)
 
-        self.team_dino.dino_1.attack(self.team_robo.robo_3, self.team_robo.fleet)
+        attacker = self.team_dino.herd[dino_player_input_index]
 
-        self.team_dino.dino_2.attack(self.team_robo.robo_1, self.team_robo.fleet)
+        print("Current status of Team Robo Dunasty:")
 
-        self.team_dino.dino_2.attack(self.team_robo.robo_2, self.team_robo.fleet)
+        count = 0
 
-        self.team_dino.dino_2.attack(self.team_robo.robo_3, self.team_robo.fleet)
+        while (self.team_robo.robo_1 in self.team_robo.fleet) and count == 0:
 
-        self.team_dino.dino_3.attack(self.team_robo.robo_1, self.team_robo.fleet)
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Toby (Hitpoints: {self.team_robo.robo_1.health}, Attack Power: {self.team_robo.robo_1.robo_attack_power})')
 
-        self.team_dino.dino_3.attack(self.team_robo.robo_2, self.team_robo.fleet)
+            count += 1
 
-        self.team_dino.dino_3.attack(self.team_robo.robo_3, self.team_robo.fleet)
+        count = 0
 
-    def show_robo_opponent_options(self): #void
+        while (self.team_robo.robo_2 in self.team_robo.fleet) and count == 0:
+            
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Moo (Hitpoints: {self.team_robo.robo_2.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
 
-        self.team_robo.robo_1.attack(self.team_dino.dino_1, self.team_dino.herd)
+            count += 1
 
-        self.team_robo.robo_1.attack(self.team_dino.dino_2, self.team_dino.herd)
+        count = 0
 
-        self.team_robo.robo_1.attack(self.team_dino.dino_3, self.team_dino.herd)
+        while (self.team_robo.robo_3 in self.team_robo.fleet) and count == 0:
+            
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_3)} to select Jaxson (Hitpoints: {self.team_robo.robo_3.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
 
-        self.team_robo.robo_2.attack(self.team_dino.dino_1, self.team_dino.herd)
+            count += 1
 
-        self.team_robo.robo_2.attack(self.team_dino.dino_2, self.team_dino.herd)
+        dino_player_target_input = input('Please select a robot to attack with your prehistoric anger: ')
 
-        self.team_robo.robo_2.attack(self.team_dino.dino_3, self.team_dino.herd)
+        dino_player_target_input_index = int(dino_player_target_input)
 
-        self.team_robo.robo_3.attack(self.team_dino.dino_1, self.team_dino.herd)
+        target = self.team_robo.fleet[dino_player_target_input_index]
 
-        self.team_robo.robo_3.attack(self.team_dino.dino_2, self.team_dino.herd)
+        self.team_dino.herd[attacker].attack(self.team_robo.fleet[target], self.team_robo.fleet)
 
-        self.team_robo.robo_3.attack(self.team_dino.dino_3, self.team_dino.herd)
-
+    def show_robo_opponent_options(self):
+        pass
 
     def display_winners(self): #void
 
