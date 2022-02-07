@@ -12,22 +12,8 @@ class Battlfield:
     def run_game(self): #void - this should be a 'while statement' to keep the game running in a loop. Should be nothing but modifiers.
         
         self.display_welcome()
-        
-        self.game_winner = False
-        self.dino_turn_now = True
-        self.robo_turn_now = False
 
-        while self.game_winner is False:
-
-            self.battle()
-
-            if ((len(self.team_dino.herd) < 0) or (len(self.team_robo.fleet) < 0)):
-
-                self.game_winner = True
-
-            else:
-                
-                self.game_winner = False
+        self.battle()
 
         self.display_winners()
 
@@ -43,22 +29,38 @@ class Battlfield:
     
     def battle(self): #void - ran after the display and initiates the first turn. This is where the turns alternated between one another.
 
+        self.game_winner = False
+
         self.dino_turn_now = True
-        self.robo_turn_now = False
 
-        while self.dino_turn_now == True and self.robo_turn_now == False:
+        print("Team Dinomyte always goes first since they were technically on the Earth first and still don't have lasers... it's only fair.")
 
-            self.dino_turn()
+        while self.game_winner is False:
 
-            self.dino_turn_now = False
-            self.robo_turn_now = True
+            while self.dino_turn_now == True:
 
-        while self.dino_turn_now == False and self.robo_turn_now == True:
+                if ((len(self.team_robo.fleet) == 0) or (len(self.team_dino.herd) == 0)):
 
-            self.robo_turn()
+                    self.game_winner = True
+                    self.dino_turn_now = False
 
-            self.dino_turn_now = True
-            self.robo_turn_now = False
+                else:
+                    
+                    self.dino_turn()
+                    self.dino_turn_now = False
+
+
+            while self.dino_turn_now == False:
+
+                if ((len(self.team_robo.fleet) == 0) or (len(self.team_dino.herd) == 0)):
+
+                    self.game_winner = True
+                    self.dino_turn_now = True
+            
+                else:
+                    
+                    self.robo_turn()
+                    self.dino_turn_now = True
 
     def dino_turn(self): #void display the current status of the herd (who is left, what their health is at, and their attack_power)
         
@@ -70,6 +72,8 @@ class Battlfield:
 
         self.show_dino_opponent_options()
 
+        print('************************************************************************************************************************************************')
+
     def robo_turn(self): #void
 
         print("Current status of Team Robo Dynasty:")
@@ -79,6 +83,8 @@ class Battlfield:
             print(f'Press {self.team_robo.fleet.index(robot)} to select {robot.name} (Hitpoints: {robot.health}, Attack Power: {robot.robo_attack_power})')
 
         self.show_robo_opponent_options()
+
+        print('************************************************************************************************************************************************')
 
     def show_dino_opponent_options(self): #void
 
@@ -138,11 +144,11 @@ class Battlfield:
 
     def display_winners(self): #void
 
-        if ((len(self.team_dino.herd)) > 0):
+        if len(self.team_dino.herd) > 0 and len(self.team_robo.fleet) == 0:
 
             print('Congratz to Team Dynomite!')
 
-        else:
+        elif len(self.team_robo.fleet) > 0 and len(self.team_dino.herd) == 0:
 
             print('Congratz to Team Robo Dynasty')
 
