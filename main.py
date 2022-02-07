@@ -3,8 +3,4 @@ from herd import Herd
 
 battlefield = Battlfield()
 
-# battlefield.run_game()
-
-battlefield.display_welcome()
-
-battlefield.test()
+battlefield.run_game()
