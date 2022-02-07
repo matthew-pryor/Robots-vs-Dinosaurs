@@ -4,11 +4,11 @@ from weapon import Weapon
 
 class Robot:
 
-    def __init__(self, name):
+    def __init__(self, name, weapon):
 
         self.name = name
         self.health = 100
-        weapon = Weapon('Pulse Rifle', randint(39, 61))
+        self.weapon = weapon
         self.robo_attack_power = weapon.weapon_attack_power
 
     def attack(self, dinosaur): #void

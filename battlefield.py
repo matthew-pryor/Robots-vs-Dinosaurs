@@ -24,7 +24,7 @@ class Battlfield:
         print()
         print(f"Fighting for Team Dynomite we've got {self.team_dino.dino_1.name}, {self.team_dino.dino_2.name}, and {self.team_dino.dino_3.name}!")
         print()
-        print(f"Fighting for Team Robo Dynasty we've got {self.team_robo.robo_1.name}, {self.team_robo.robo_2.name}, and {self.team_robo.robo_3.name}!")
+        print(f"Fighting for Team Robo Dynasty we've got {self.team_robo.robo_1.name} equipped with a {self.team_robo.robo_1.weapon.name}, {self.team_robo.robo_2.name} equipped with a {self.team_robo.robo_2.weapon.name}, and {self.team_robo.robo_3.name} equipped with a {self.team_robo.robo_3.weapon.name}!")
         print('************************************************************************************************************************************************')
     
     def battle(self): #void - ran after the display and initiates the first turn. This is where the turns alternated between one another.
