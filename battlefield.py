@@ -92,13 +92,13 @@ class Battlfield:
 
     def robo_turn(self): #void
 
-        print("Current status of Team Robo Dunasty:")
+        print("Current status of Team Robo Dynasty:")
 
         count = 0
 
         while (self.team_robo.robo_1 in self.team_robo.fleet) and count == 0:
 
-            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Toby (Hitpoints: {self.team_robo.robo_1.health}, Attack Power: {self.team_robo.robo_1.robo_attack_power})')
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Terminator (Hitpoints: {self.team_robo.robo_1.health}, Attack Power: {self.team_robo.robo_1.robo_attack_power})')
 
             count += 1
 
@@ -106,7 +106,7 @@ class Battlfield:
 
         while (self.team_robo.robo_2 in self.team_robo.fleet) and count == 0:
             
-            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Moo (Hitpoints: {self.team_robo.robo_2.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Robo Cop (Hitpoints: {self.team_robo.robo_2.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
 
             count += 1
 
@@ -114,7 +114,7 @@ class Battlfield:
 
         while (self.team_robo.robo_3 in self.team_robo.fleet) and count == 0:
             
-            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_3)} to select Jaxson (Hitpoints: {self.team_robo.robo_3.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_3)} to select Gypsy Danger (Hitpoints: {self.team_robo.robo_3.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
 
             count += 1
 
@@ -128,13 +128,13 @@ class Battlfield:
 
         attacker = self.team_dino.herd[dino_player_input_index]
 
-        print("Current status of Team Robo Dunasty:")
+        print("Current status of Team Robo Dynasty:")
 
         count = 0
 
         while (self.team_robo.robo_1 in self.team_robo.fleet) and count == 0:
 
-            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Toby (Hitpoints: {self.team_robo.robo_1.health}, Attack Power: {self.team_robo.robo_1.robo_attack_power})')
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Terminator (Hitpoints: {self.team_robo.robo_1.health}, Attack Power: {self.team_robo.robo_1.robo_attack_power})')
 
             count += 1
 
@@ -142,7 +142,7 @@ class Battlfield:
 
         while (self.team_robo.robo_2 in self.team_robo.fleet) and count == 0:
             
-            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Moo (Hitpoints: {self.team_robo.robo_2.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_2)} to select Robo Cop (Hitpoints: {self.team_robo.robo_2.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
 
             count += 1
 
@@ -150,7 +150,7 @@ class Battlfield:
 
         while (self.team_robo.robo_3 in self.team_robo.fleet) and count == 0:
             
-            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_3)} to select Jaxson (Hitpoints: {self.team_robo.robo_3.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_3)} to select Gypsy Danger (Hitpoints: {self.team_robo.robo_3.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
 
             count += 1
 
@@ -163,7 +163,46 @@ class Battlfield:
         self.team_dino.herd[attacker].attack(self.team_robo.fleet[target], self.team_robo.fleet)
 
     def show_robo_opponent_options(self):
-        pass
+        
+        robo_player_input = input('Please select a robot to attack with: ')
+
+        robo_player_input_index = int(robo_player_input)
+
+        attacker = self.team_dino.herd[robo_player_input_index]
+
+        print("Current status of Team Dinomyte:")
+
+        count = 0
+
+        while (self.team_dino.dino_1 in self.team_dino.herd) and count == 0:
+
+            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_1)} to select Toby (Hitpoints: {self.team_dino.dino_1.health}, Attack Power: {self.team_dino.dino_1.dino_attack_power})')
+
+            count += 1
+
+        count = 0
+
+        while (self.team_dino.dino_2 in self.team_dino.herd) and count == 0:
+            
+            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_2)} to select Moo (Hitpoints: {self.team_dino.dino_2.health}, Attack Power: {self.team_dino.dino_2.dino_attack_power})')
+
+            count += 1
+
+        count = 0
+
+        while (self.team_dino.dino_3 in self.team_dino.herd) and count == 0:
+            
+            print(f'Press {self.team_dino.herd.index(self.team_dino.dino_3)} to select Jaxson (Hitpoints: {self.team_dino.dino_3.health}, Attack Power: {self.team_dino.dino_3.dino_attack_power})')
+
+            count += 1
+
+        robo_player_target_input = input('Please select a dinosaur to attack with your futuristic fury: ')
+
+        robo_player_target_input_index = int(robo_player_target_input)
+
+        target = self.team_dino.herd[robo_player_target_input_index]
+
+        self.team_robo.fleet[attacker].attack(self.team_dino.herd[target], self.team_dino.herd)
 
     def display_winners(self): #void
 
@@ -202,3 +241,43 @@ class Battlfield:
             print(f'Press {self.team_dino.herd.index(self.team_dino.dino_3)} to select Jaxson ({self.team_dino.dino_3.health}, {self.team_dino.dino_3.dino_attack_power})')
 
             count += 1
+
+        dino_player_input = input('Please select a dinosaur to attack with: ')
+
+        dino_player_input_index = int(dino_player_input)
+
+        attacker = self.team_dino.herd[dino_player_input_index]
+
+        print("Current status of Team Robo Dynasty:")
+
+        count = 0
+
+        while (self.team_robo.robo_1 in self.team_robo.fleet) and count == 0:
+
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_1)} to select Terminator (Hitpoints: {self.team_robo.robo_1.health}, Attack Power: {self.team_robo.robo_1.robo_attack_power})')
+
+            count += 1
+
+        count = 0
+
+        while (self.team_robo.robo_2 in self.team_robo.fleet) and count == 0:
+            
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_2)} to select Robo Cop (Hitpoints: {self.team_robo.robo_2.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
+
+            count += 1
+
+        count = 0
+
+        while (self.team_robo.robo_3 in self.team_robo.fleet) and count == 0:
+            
+            print(f'Press {self.team_robo.fleet.index(self.team_robo.robo_3)} to select Gypsy Danger (Hitpoints: {self.team_robo.robo_3.health}, Attack Power: {self.team_robo.robo_3.robo_attack_power})')
+
+            count += 1
+
+        dino_player_target_input = input('Please select a robot to attack with your prehistoric anger: ')
+
+        dino_player_target_input_index = int(dino_player_target_input)
+
+        target = self.team_robo.fleet[dino_player_target_input_index]
+
+        attacker.attack(target, self.team_robo.fleet)
