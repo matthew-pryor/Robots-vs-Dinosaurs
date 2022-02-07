@@ -102,17 +102,11 @@ class Battlfield:
 
         attacker.attack(target)
 
-        if self.team_robo.robo_1.health <= 0:
+        for robo in self.team_robo.fleet:
 
-            self.team_robo.fleet.remove(self.team_robo.robo_1)
+            if robo.health <= 0:
 
-        elif self.team_robo.robo_2.health <=0:
-
-            self.team_robo.fleet.remove(self.team_robo.robo_2)
-
-        elif self.team_robo.robo_3.health <= 0:
-
-            self.team_robo.fleet.remove(self.team_robo.robo_3)
+                self.team_robo.fleet.remove(robo)
 
     def show_robo_opponent_options(self):
         
@@ -136,17 +130,11 @@ class Battlfield:
 
         attacker.attack(target)
 
-        if self.team_dino.dino_1.health <= 0:
+        for dino in self.team_dino.herd:
 
-            self.team_dino.herd.remove(self.team_dino.dino_1)
+            if dino.health <= 0:
 
-        elif self.team_dino.dino_2.health <=0:
-
-            self.team_dino.herd.remove(self.team_dino.dino_2)
-
-        elif self.team_dino.dino_3.health <= 0:
-
-            self.team_dino.herd.remove(self.team_dino.dino_3)
+                self.team_dino.herd.remove(dino)
 
     def display_winners(self): #void
 
