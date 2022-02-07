@@ -11,9 +11,9 @@ class Herd:
 
     def create_herd(self): # void it needs to add dinosaurs to the overall list (team) of dinosaurs
         
-        self.dino_1 = Dinosaur('Toby', 50)
-        self.dino_2 = Dinosaur('Moo', 50)
-        self.dino_3 = Dinosaur('Jaxson', 50)
+        self.dino_1 = Dinosaur('Toby the T-Rex', 25)
+        self.dino_2 = Dinosaur('Moo the Meme-o-saurus', 50)
+        self.dino_3 = Dinosaur('Triceratops Troy', 75)
 
         self.herd.append(self.dino_1)
         self.herd.append(self.dino_2)

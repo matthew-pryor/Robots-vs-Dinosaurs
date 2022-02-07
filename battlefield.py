@@ -151,9 +151,3 @@ class Battlfield:
         elif len(self.team_robo.fleet) > 0 and len(self.team_dino.herd) == 0:
 
             print('Congratz to Team Robo Dynasty')
-
-    def test(self):
-
-        for robot in self.team_robo.fleet:
-
-            print(f'Press {self.team_robo.fleet.index(robot)} to select {robot.name} (Hitpoints: {robot.health}, Attack Power: {robot.robo_attack_power})')

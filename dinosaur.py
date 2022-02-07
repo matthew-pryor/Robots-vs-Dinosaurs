@@ -20,4 +20,4 @@ class Dinosaur:
 
         else:
 
-            print(f"That's a lot of damage! Looks like {robot.name} is out of commission!")
+            print(f"That's a lot of carnage! Oil and gears are everywhere! Looks like {robot.name} is out of commission!")
